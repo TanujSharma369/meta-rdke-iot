@@ -1,7 +1,7 @@
 # Example customization for barton-matter
 # This shows how to customize the Matter configuration for your specific product
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 
 SRC_URI += " \
     file://barton.zap \
