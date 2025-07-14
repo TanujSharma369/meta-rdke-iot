@@ -13,5 +13,5 @@ MATTER_ZAP_FILE = "${WORKDIR}/barton.zap"
 MATTER_ZZZ_GENERATED = "${WORKDIR}/zzz_generated"
 
 # Set persistent storage location for production use
-EXTRA_OECMAKE_remove = "-DMATTER_CONF_DIR=/tmp"
+EXTRA_OECMAKE:remove = "-DMATTER_CONF_DIR=/tmp"
 EXTRA_OECMAKE += "-DMATTER_CONF_DIR=/var/lib/my-product"
