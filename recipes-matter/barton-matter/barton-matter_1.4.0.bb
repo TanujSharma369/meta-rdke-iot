@@ -12,6 +12,7 @@ DEPENDS:append = " \
     jq-native \
     glib-2.0-native \
 "
+PACKAGE_ARCH = "${MIDDLEWARE_ARCH}"
 
 PROVIDES = "barton-matter"
 RPROVIDES_${PN} = "barton-matter"
