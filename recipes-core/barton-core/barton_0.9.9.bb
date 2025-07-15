@@ -3,6 +3,8 @@ HOMEPAGE = "https://github.com/rdkcentral/BartonCore"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=1079582effd6f382a3fba8297d579b46"
 
+PACKAGE_ARCH = "${MIDDLEWARE_ARCH}"
+
 DEPENDS:append = " \
     cjson \
     curl \
