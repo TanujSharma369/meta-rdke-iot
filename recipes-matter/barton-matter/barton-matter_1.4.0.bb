@@ -12,7 +12,7 @@ DEPENDS_append = " \
     jq-native \
     glib-2.0-native \
 "
-
+PACKAGES = "${PN}"
 PROVIDES = "barton-matter"
 RPROVIDES_${PN} = "barton-matter"
 
