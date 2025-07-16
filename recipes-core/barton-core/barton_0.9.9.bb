@@ -14,7 +14,7 @@ DEPENDS:append = " \
     mbedtls \
     libcertifier \
 "
-DEPENDS += "libxml2"
+DEPENDS += "libxml2 certifier"
 #otbr-agent \ barton depends on
 
 RPROVIDES_${PN} += "barton"
