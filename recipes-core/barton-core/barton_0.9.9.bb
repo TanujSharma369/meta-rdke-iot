@@ -12,9 +12,9 @@ DEPENDS:append = " \
     glib-2.0 \
     barton-matter \
     mbedtls \
-    otbr-agent \
     libcertifier \
 "
+#otbr-agent \ barton depends on
 
 RPROVIDES_${PN} += "barton"
 
