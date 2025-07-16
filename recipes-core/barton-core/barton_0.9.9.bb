@@ -21,6 +21,8 @@ RPROVIDES_${PN} += "barton"
 
 SRC_URI = "git://git@github.com/rdkcentral/BartonCore.git;protocol=ssh;name=barton;nobranch=1"
 SRCREV = "baef4966c3d844da2f5073543f5c7cf8e394e69c"
+
+SRC_URI += "file://0001-commit-for-patch.patch"
 S = "${WORKDIR}/git"
 
 inherit cmake pkgconfig
