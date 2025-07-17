@@ -38,7 +38,6 @@ EXTRA_OECMAKE = "\
     -DJsonCpp_INCLUDE_DIR=${STAGING_INCDIR}/json \
     -DBCORE_THREAD=OFF \
     -DBCORE_GEN_GIR=OFF \
-
 "
 CXXFLAGS += "-I${STAGING_INCDIR}/json"
 do_install:append() {
