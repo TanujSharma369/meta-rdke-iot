@@ -82,7 +82,7 @@ See barton-matter-example directory for an example implementation.
 
 do_install() {
     install -d ${D}${bindir}
-    install -m 0755 ${S}/path/to/barton-matter ${D}${bindir}/barton-matter
+    install -m 0755 ${B}/third_party/barton/barton-matter ${D}${bindir}/barton-matter
 }
 
 do_configure:prepend() {
