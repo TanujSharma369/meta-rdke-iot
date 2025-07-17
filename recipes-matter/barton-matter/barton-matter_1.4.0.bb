@@ -79,12 +79,7 @@ This recipe requires customization through a bbappend file.
 See barton-matter-example directory for an example implementation.
 """ % "\n".join(error_msg))
 }
-
-do_install() {
-    install -d ${D}${bindir}
-    install -m 0755 ${B}/third_party/barton/barton-matter ${D}${bindir}/barton-matter
-}
-
+addtask check_matter_configuration before do_configure
 do_configure:prepend() {
     mkdir -p ${S}/third_party/barton
     cp -r ${THISDIR}/files/. ${S}/third_party/barton/
@@ -102,4 +97,6 @@ do_configure:prepend() {
     git submodule update --init -- third_party/perfetto/repo
     cd "${B}"
 }
-FILES_${PN} += "${bindir}/barton-matter"
+do_install:append() {
+    cp -r "${S}/third_party/jsoncpp/repo/include/"* "${D}${includedir}/matter/"
+}
