@@ -8,13 +8,14 @@ PACKAGE_ARCH = "${MIDDLEWARE_ARCH}"
 DEPENDS:append = " \
     cjson \
     curl \
+    jsoncpp \
     dbus \
     glib-2.0 \
     barton-matter \
     mbedtls \
     libcertifier \
+    libxml2 \
 "
-DEPENDS += "libxml2"
 #otbr-agent \ barton depends on
 
 RPROVIDES_${PN} += "barton"
@@ -32,6 +33,7 @@ EXTRA_OECMAKE = "\
     -DBDS_GEN_GIR=OFF \
     -DBDS_MATTER_LIB=BartonMatter \
     -DBUILD_TESTING=OFF \
+    -DBDS_THREAD=OFF \
 "
 
 do_install:append() {
