@@ -80,7 +80,10 @@ See barton-matter-example directory for an example implementation.
 """ % "\n".join(error_msg))
 }
 
-addtask check_matter_configuration before do_configure
+do_install() {
+    install -d ${D}${bindir}
+    install -m 0755 ${S}/path/to/barton-matter ${D}${bindir}/barton-matter
+}
 
 do_configure:prepend() {
     mkdir -p ${S}/third_party/barton
@@ -99,3 +102,4 @@ do_configure:prepend() {
     git submodule update --init -- third_party/perfetto/repo
     cd "${B}"
 }
+FILES_${PN} += "${bindir}/barton-matter"
