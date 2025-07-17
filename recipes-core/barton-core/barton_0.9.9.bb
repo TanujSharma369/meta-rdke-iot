@@ -25,6 +25,9 @@ SRC_URI = "git://git@github.com/rdkcentral/BartonCore.git;protocol=ssh;name=bart
 SRCREV = "baef4966c3d844da2f5073543f5c7cf8e394e69c"
 
 SRC_URI += "file://0001-commit-for-patch.patch"
+SRC_URI += "file://dependency-config-update.patch"
+SRC_URI += "file://add-so-version.patch"
+
 S = "${WORKDIR}/git"
 
 inherit cmake pkgconfig
@@ -39,7 +42,10 @@ EXTRA_OECMAKE = "\
     -DBCORE_THREAD=OFF \
     -DBCORE_GEN_GIR=OFF \
 "
+
 CXXFLAGS += "-I${STAGING_INCDIR}/json"
+EXTRA_OECMAKE += "-DCMAKE_PREFIX_PATH=${STAGING_DIR_TARGET}/usr"
+
 do_install:append() {
     install -d ${D}${includedir}/barton
 
