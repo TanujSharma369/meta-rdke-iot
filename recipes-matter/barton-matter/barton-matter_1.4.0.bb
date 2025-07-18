@@ -3,7 +3,7 @@ HOMEPAGE = "https://github.com/project-chip/connectedhomeip"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=86d3f3a95c324c9479bd8986968f4327"
 
-DEPENDS:append = " \
+DEPENDS += " \
     glib-2.0 \
     curl \
     openssl \
@@ -12,7 +12,6 @@ DEPENDS:append = " \
     jq-native \
     glib-2.0-native \
 "
-PACKAGE_ARCH = "${MIDDLEWARE_ARCH}"
 
 PROVIDES = "barton-matter"
 RPROVIDES_${PN} = "barton-matter"
@@ -79,7 +78,9 @@ This recipe requires customization through a bbappend file.
 See barton-matter-example directory for an example implementation.
 """ % "\n".join(error_msg))
 }
+
 addtask check_matter_configuration before do_configure
+
 do_configure:prepend() {
     mkdir -p ${S}/third_party/barton
     cp -r ${THISDIR}/files/. ${S}/third_party/barton/
@@ -97,6 +98,10 @@ do_configure:prepend() {
     git submodule update --init -- third_party/perfetto/repo
     cd "${B}"
 }
+
 do_install:append() {
     cp -r "${S}/third_party/jsoncpp/repo/include/"* "${D}${includedir}/matter/"
 }
+ALLOW_EMPTY:${PN} = "1"
+FILES:${PN} = ""
+FILES:${PN}-dev += "${includedir}/matter"

@@ -3,31 +3,24 @@ HOMEPAGE = "https://github.com/rdkcentral/BartonCore"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=1079582effd6f382a3fba8297d579b46"
 
-PACKAGE_ARCH = "${MIDDLEWARE_ARCH}"
-
-DEPENDS:append = " \
+DEPENDS += " \
     cjson \
     curl \
-    jsoncpp \
     dbus \
     glib-2.0 \
     barton-matter \
     mbedtls \
     libcertifier \
     libxml2 \
-    linenoise \
 "
-#otbr-agent \ barton depends on
-
 RPROVIDES_${PN} += "barton"
 
 SRC_URI = "git://git@github.com/rdkcentral/BartonCore.git;protocol=ssh;name=barton;nobranch=1"
 SRCREV = "baef4966c3d844da2f5073543f5c7cf8e394e69c"
+S = "${WORKDIR}/git"
 
 SRC_URI += "file://dependency-config-update.patch"
 SRC_URI += "file://add-so-version.patch"
-
-S = "${WORKDIR}/git"
 
 inherit cmake pkgconfig
 
@@ -36,13 +29,7 @@ EXTRA_OECMAKE = "\
     -DBDS_GEN_GIR=OFF \
     -DBDS_MATTER_LIB=BartonMatter \
     -DBUILD_TESTING=OFF \
-    -DBDS_THREAD=OFF \
-    -DJsonCpp_INCLUDE_DIR=${STAGING_INCDIR}/json \
-    -DBCORE_THREAD=OFF \
-    -DBCORE_GEN_GIR=OFF \
 "
-
-CXXFLAGS += "-I${STAGING_INCDIR}/json"
 EXTRA_OECMAKE += "-DCMAKE_PREFIX_PATH=${STAGING_DIR_TARGET}/usr"
 
 do_install:append() {
