@@ -8,7 +8,7 @@ DEPENDS += " \
     curl \
     dbus \
     glib-2.0 \
-    barton-matter \
+    barton \
     mbedtls \
     libcertifier \
     libxml2 \
