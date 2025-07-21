@@ -102,6 +102,3 @@ do_configure:prepend() {
 do_install:append() {
     cp -r "${S}/third_party/jsoncpp/repo/include/"* "${D}${includedir}/matter/"
 }
-#ALLOW_EMPTY:${PN} = "1"
-#FILES:${PN} = ""
-#FILES:${PN}-dev += "${includedir}/matter"
