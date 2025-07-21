@@ -31,7 +31,7 @@ EXTRA_OECMAKE = "\
     -DBUILD_TESTING=OFF \
 "
 EXTRA_OECMAKE += "-DCMAKE_PREFIX_PATH=${STAGING_DIR_TARGET}/usr"
-
+FILES:${PN} += "${libdir}/libbrtnDeviceServiceShared.so.*"
 do_install:append() {
     install -d ${D}${includedir}/barton
 
