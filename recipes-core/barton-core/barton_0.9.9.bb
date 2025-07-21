@@ -45,10 +45,10 @@ do_install:append() {
 }
 
 # Define what goes in the main runtime package
-FILES_${PN} = "${libdir}/libbrtnDeviceServiceShared.so.*"
+FILES:${PN} = "${libdir}/libbrtnDeviceServiceShared.so.*"
 
 # Ensure the dev package contains the public API headers
-FILES_${PN}-dev += "${includedir}/barton/"
+FILES:${PN}-dev += "${includedir}/barton/"
 
 # Skip QA check for .so files in the -dev package
-INSANE_SKIP_${PN}-dev += "dev-elf"
+INSANE_SKIP:${PN}-dev += "dev-elf"
