@@ -13,6 +13,7 @@ DEPENDS += " \
     libcertifier \
     libxml2 \
     jsoncpp \
+    linenoise \
 "
 RPROVIDES_${PN} += "barton"
 
