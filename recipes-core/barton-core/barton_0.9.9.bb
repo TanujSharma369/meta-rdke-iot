@@ -12,6 +12,7 @@ DEPENDS += " \
     mbedtls \
     libcertifier \
     libxml2 \
+    jsoncpp \
 "
 RPROVIDES_${PN} += "barton"
 
@@ -21,7 +22,7 @@ S = "${WORKDIR}/git"
 
 SRC_URI += "file://dependency-config-update.patch"
 SRC_URI += "file://add-so-version.patch"
-
+SRC_URI += "file://0001-inclusion-of-jsoncpp.patch"
 inherit cmake pkgconfig
 
 EXTRA_OECMAKE = "\

@@ -1,0 +1,25 @@
+From 388455392732be2b41f453076b57ceafbb6ab714 Mon Sep 17 00:00:00 2001
+From: Tanuj <80375714+TanujSharma369@users.noreply.github.com>
+Date: Thu, 31 Jul 2025 11:28:17 +0530
+Subject: [PATCH] inclusion of jsoncpp
+
+---
+ core/CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/core/CMakeLists.txt b/core/CMakeLists.txt
+index 75ca826..56c5859 100644
+--- a/core/CMakeLists.txt
++++ b/core/CMakeLists.txt
+@@ -153,7 +153,7 @@ list(APPEND XTRA_INCLUDES ${CURL_INCLUDE_DIRS})
+ set(btnDSLinkLibraries brtnDeviceServiceConfig xhLog xhTypes xhTime xhUtil
+         xhConcurrent xhConfig xhUrlHelper xhXmlHelper xhJsonHelper
+         xhDeviceHelper xhDeviceDescriptors xhXmlHelper
+-        xhCrypto ${XTRA_LIBS} cjson uuid curl xml2 z m)
++        xhCrypto ${XTRA_LIBS} cjson jsoncpp uuid curl xml2 z m)
+ 
+ if (BDS_SUPPORT_SOFTWARE_WATCHDOG)
+     set(btnDSLinkLibraries ${btnDSLinkLibraries} xhSoftwareWatchdog)
+-- 
+2.43.0
+
