@@ -26,7 +26,7 @@ SRC_URI += "file://0001-inclusion-of-jsoncpp.patch"
 inherit cmake pkgconfig
 
 EXTRA_OECMAKE = "\
-    -DBDS_BUILD_REFERENCE=OFF \
+    -DBDS_BUILD_REFERENCE=ON \
     -DBDS_GEN_GIR=OFF \
     -DBDS_MATTER_LIB=BartonMatter \
     -DBUILD_TESTING=OFF \
